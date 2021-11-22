@@ -1,9 +1,7 @@
-CNFgrammar = {
-    # Grammar tanda kurung
-    "S": [["e"], ["C", "B"], ["S", "S"]], 
-    "A": [["("]], 
-    "B": [[")"]], 
-    "C": [["A", "S"]]}
+import readCNF
+
+non_terminals, terminals, CNFgrammar = readCNF.readCNF("./CNF.txt")
+print(CNFgrammar)
 
 def cyk(word):
     n = len(word)

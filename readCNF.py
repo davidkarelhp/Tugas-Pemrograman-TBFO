@@ -19,7 +19,9 @@ def readCNF(CNFpath):
                 if r not in terminals:
                     [r] = r
                     terminals.append(r)
-            R[left].append([ri])
+                R[left].append([r])
+            else:
+                R[left].append(r)
 
     return non_terminals, terminals, R
 
