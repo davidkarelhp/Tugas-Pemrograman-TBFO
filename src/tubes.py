@@ -1,6 +1,6 @@
 import readCNF
 
-non_terminals, terminals, CNFgrammar = readCNF.readCNF("./CNF.txt")
+non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\CNF.txt")
 print(CNFgrammar)
 
 def cyk(word):
