@@ -1,5 +1,5 @@
 Terminals:
-if elif else for in is while break continue def class pass with as from import raise // ** += -= *= /= **= //= %= , == < <= > >= != True False or and 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! " # $ % & ' - . / : ; < = > ? @ [ \ ] ^ _ ` { } ~
+if elif else for in is while break continue def class pass with as from import raise // ** += -= *= /= **= //= %= , == < <= > >= != True False or and 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! " # $ % & ' - . / : < = > ? @ [ \ ] ^ _ ` { } ~
 Variables:
 START VAR VAL VVS VV PARAM PARAMETER FUNC ASSIGNMENT OPERATOR RELATION EXPRESSION ARRAY ISIDATA DICT ISIDICT IF ELIF ELSE FOR BC BREAK CONTINUE RAISE WHILE IMPORT WITH DEF CLASS BEBAS STRING
 Productions:
@@ -13,7 +13,7 @@ PARAMETER -> ( PARAM ) | ( PARAMETER ) | ( );
 FUNC -> VAR PARAMETER;
 ASSIGNMENT -> = | += | -= | /= | *= | **= | //= | %=;
 OPERATOR -> VV + VV | VV - VV | VV / VV | VV * VV | VV ** VV | VV % VV | VV // VV;
-RELATION -> == | < | <= | > | >= | != ;
+RELATION -> == | < | <= | > | >= | !=;
 EXPRESSION -> VV RELATION VV | True | False;
 ARRAY -> [ ] | [ ISIDATA ];
 ISIDATA -> PARAM | PARAMETER | ISIDATA , ISIDATA;
@@ -32,5 +32,5 @@ IMPORT -> import VAR | from VAR import VAR | from VAR import VAR as VAR | import
 WITH -> with VAR as VAR;
 DEF -> def FUNC : START | def FUNC : START return | def FUNC : START return VAR | def FUNC : START return EXPRESSION | def FUNC : pass | def FUNC : START pass ;
 CLASS -> class VAR : START | class VAR : pass | class VAR : START pass;
-BEBAS -> BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ! | " | # | $ | % | & | ' | - | . | / | : | ; | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~;
-STRING -> " BEBAS " | ' BEBAS ' | " " " BEBAS " " " | ' ' ' BEBAS ' ' ';
+BEBAS -> BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~;
+STRING -> " BEBAS " | ' BEBAS ' | " " " BEBAS " " " | ' ' ' BEBAS ' ' '
