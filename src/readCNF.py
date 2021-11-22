@@ -6,27 +6,28 @@ def readCNF(CNFpath):
     R = {}
     
     for grammar in grammars:
-        left, right = grammar.split(" -> ")
-        
-        if left not in non_terminals:
-            non_terminals.append(left)
-            R[left] = []
+        if (grammar != ''):
+            left, right = grammar.split(" -> ")
+            
+            if left not in non_terminals:
+                non_terminals.append(left)
+                R[left] = []
 
-        right = right.split(" | ")
-        for ri in right:
-            r = ri.split()
-            if (len(r) == 1):
-                if r not in terminals:
-                    [r] = r
-                    terminals.append(r)
-                R[left].append([r])
-            else:
-                R[left].append(r)
+            right = right.split(" | ")
+            for ri in right:
+                r = ri.split()
+                if (len(r) == 1):
+                    if r not in terminals:
+                        [r] = r
+                        terminals.append(r)
+                    R[left].append([r])
+                else:
+                    R[left].append(r)
 
     return non_terminals, terminals, R
 
 def main():
-    path = "./CNF.txt"
+    path = "./grammar/CNF.txt"
     non_terminals, terminals, R = readCNF(path)
     print("non_terminals =", non_terminals)
     print("terminals =", terminals)
