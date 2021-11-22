@@ -87,14 +87,22 @@ def
     return
 class
 
-- from, import, as
-S -> import | FROM IMPORT | IMPORT AS | FROM IMAS
+- VAR
+S -> VAR
+VAR -> apa aja
+
+- from, import, as, with
+S -> import | WITH AS | FROM IMPORT | IMPORT AS | FROM IMAS
 IMAS -> IMPORT AS
+WITH -> with
 IMPORT -> import
 FROM -> from
 AS -> as
 
+S -> import VAR | with VAR as VAR | from VAR import VAR | from VAR import VAR as VAR | import VAR as VAR
+
+
 - testcase from, import, as
 from import as
 
-
+- 
