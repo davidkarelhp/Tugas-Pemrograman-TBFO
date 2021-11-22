@@ -1,7 +1,10 @@
+from os import WCOREDUMP
+# from src.token import tokenizeInput
 import readCNF
+import token
 
-non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\CNF.txt")
-print(CNFgrammar)
+non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
+# print(CNFgrammar)
 
 def cyk(word):
     n = len(word)
@@ -37,7 +40,8 @@ def cyk(word):
         print("rejected")
     return "S" in table[0][n - 1]
 
-word = "(((((e))))(e)((e)))"
+# word = "(((((e))))(e)((e)))"
+word = token.tokenizeInput('./tes.txt')
 cyk(word)
 
 def printTable(t):
