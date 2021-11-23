@@ -1,33 +1,12 @@
-from biglibrary import matplotlib as mp
-class Kelas:
-    if (brian):
-        halo = "halo"
-        x = 2 + 3
-        if (aldwin):
-            x = 2 + 3
-            halo = "halo"
-            if (halo):
-                with open ("file.txt", 'w') as file:
-                    x = 5 + 7
-            elif boolean:
-                y = 2 + 3
-                def fungsi(parameter):
-                    x = 2 + 3
-                    halo = "halo"
-                    for element in elements:
-                        c = 7 + 8
-                        if (halo):
-                            c -= 1
-                            break
-                        continue
-        else:
-            halo = "halo"
-    else:
-        halo = "halo"
-        x = 2 + 3
-
-" Halo brian "
-
-'''
-Halo juga aldwin
-'''
+def do_something(x):
+if x == 0:
+return 0
+elif x + 4 == 1:
+if True:
+return 3
+else:
+return 2
+elif x == 32:
+return 4
+else:
+return “Doodoo”

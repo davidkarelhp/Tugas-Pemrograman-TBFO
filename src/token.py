@@ -2,7 +2,7 @@ import re
 
 def tokenizeInput(inputFilename):
     # Read from file
-    f = open(inputFilename, "r")
+    f = open(inputFilename, "r", encoding='utf8')
     contents = f.read()
     # contents = "(Halo(Halo Bandung(] yey]"
     contents = contents.split()
