@@ -13,4 +13,8 @@ return 4
 else:
 for i in range(x):
     return
+pass
+pass
+pass
+raise TypeError("Error")
 return “Doodoo”
