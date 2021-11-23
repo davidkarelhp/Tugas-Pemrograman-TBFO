@@ -1,18 +1,18 @@
 from biglibrary import matplotlib as mp
 class Kelas:
     if (brian):
-        halo = "halo
+        halo = "halo"
         x = 2 + 3
         if (aldwin):
             x = 2 + 3
-            halo = "halo
+            halo = "halo"
             if (halo):
                 with open ("file.txt", 'w') as file:
                     x = 5 + 7
             elif boolean:
                 def fungsi(parameter):
                     x = 2 + 3
-                    halo = "halo
+                    halo = "halo"
                     for element in elements:
                         c = 7 + 8
                         if (halo):
@@ -20,7 +20,13 @@ class Kelas:
                             break
                         continue
         else:
-            halo = "halo
+            halo = "halo"
     else:
-        halo = "halo
+        halo = "halo"
         x = 2 + 3
+
+" Halo brian "
+
+'''
+Halo juga aldwin
+'''

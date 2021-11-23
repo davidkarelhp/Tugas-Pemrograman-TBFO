@@ -1,10 +1,14 @@
 Terminals:
-if elif else ( ) : for in while break continue import from as def class with open
+if elif else ( ) " ' : for in while break continue import from as def class with open
 Variables:
-S IF ELIF ELSE EXPRESSION STRING FOR WHILE INSIDELOOP IMPORT FROM DEF CLASS WITH
+S IF ELIF ELSE EXPRESSION STRING FOR WHILE INSIDELOOP IMPORT FROM DEF CLASS WITH A B C D
 Productions:
-S -> S S | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH;
-EXPRESSION -> ( EXPRESSION ) | EXPRESSION EXPRESSION;
+S -> S | S S | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | " A " | ' B ' | " " " C " " " | ' ' ' D ' ' ';
+A -> A A | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH;
+B -> B B | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH;
+c -> c c | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH;
+D -> D D | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH;
+EXPRESSION -> ( EXPRESSION ) | EXPRESSION EXPRESSION | " EXPRESSION " | ' EXPRESSION ' | " " " EXPRESSION " " " | ' ' ' EXPRESSION ' ' ';
 IF -> if EXPRESSION : S;
 ELIF -> elif EXPRESSION : S | elif EXPRESSION : S ELIF | elif EXPRESSION : S ELSE;
 ELSE -> else : S;
