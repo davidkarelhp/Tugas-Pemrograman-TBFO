@@ -10,7 +10,7 @@ def tokenizeInput(inputFilename):
 
     result = contents
 
-    operators = [':', ',', '=', '<', '>', '>=', '<=', '==', '!=', r'\+', '-', r'\*', '/', r'\*\*', r'\(', r'\)' , r'\[' , r'\]',r'\'\'\'', r'\'', r'\"']
+    operators = [':', ',', '=', '<', '>', '>=', '<=', '==', '!=', '+=', '-=', '*=', '**=', '/=', '//=', r'\+', '-', r'\*', '/', r'\*\*', r'\(', r'\)' , r'\[' , r'\]',r'\'\'\'', r'\'', r'\"']
 
     # For each operator..
     for operator in operators:
