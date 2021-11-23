@@ -9,7 +9,7 @@ class Kelas:
             if (halo):
                 with open ("file.txt", 'w') as file:
                     x = 5 + 7
-            elif (boolean):
+            elif boolean:
                 y = 2 + 3
                 def fungsi(parameter):
                     x = 2 + 3

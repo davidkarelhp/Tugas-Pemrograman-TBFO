@@ -36,6 +36,7 @@ def cyk(word):
     # printTable(table)
 
     # count = 0
+    accepted = False
     for l in range(1, n + 1):
         for i in range(n - l + 1):
             j = i + l - 1
@@ -47,18 +48,19 @@ def cyk(word):
                             if (CNFgrammar[key][x][0] in table[i][k] and CNFgrammar[key][x][1] in table[k + 1][j]):
                                     table[i][j].add(key)
                         if (i == 0 and j == n - 1 and "S" in table[0][n - 1]):
+                            accepted = True
                             break
-                    if (i == 0 and j == n - 1 and "S" in table[0][n - 1]):
+                    if (accepted):
                         break
-                if (i == 0 and j == n - 1 and "S" in table[0][n - 1]):
+                if (accepted):
                     break                               
 
     # print(count)
-    if ("S" in table[0][n - 1]):
+    if (accepted):
         print("accepted")
     else:
         print("rejected")
-    return "S" in table[0][n - 1]
+    return accepted
 
 # word = "(((((e))))(e)((e)))"
 
