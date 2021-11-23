@@ -54,7 +54,7 @@ def cyk(word):
                         break
                 if (accepted):
                     break                               
-
+    print(table[0][n - 1])
     # print(count)
     if (accepted):
         print("accepted")
