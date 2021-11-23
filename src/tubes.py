@@ -1,21 +1,40 @@
+
+def printTable(t):
+    for  i in range(len(t)):
+        for j in range(len(t[0])):
+            print(t[i][j], end='')
+        print()
 from abc import abstractmethod
-from os import WCOREDUMP
+# from os import WCOREDUMP
 # from src.token import tokenizeInput
 import readCNF
 import token
+import os
 
+# print(os.getcwd())
 
+# David
+# non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
+
+# Brian
 non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
+
+
 # print(CNFgrammar)
+# print(terminals)
 
 def cyk(word):
     n = len(word)
+    print(word)
     table = [[set() for j in range(n)] for i in range(n)]
     for i in range(n):
         for key in CNFgrammar:
             for j in range(len(CNFgrammar[key])):
                 if (len(CNFgrammar[key][j]) == 1 and CNFgrammar[key][j][0] == word[i]):
                     table[i][i].add(key)
+                if not (word[i] in terminals):
+                    table[i][i].add("EXPRESSION")
+    # printTable(table)
 
     # count = 0
     for l in range(1, n + 1):
@@ -43,14 +62,13 @@ def cyk(word):
     return "S" in table[0][n - 1]
 
 # word = "(((((e))))(e)((e)))"
-word = token.tokenizeInput('./tes.txt')
-# print(word)
-cyk(word)
 
-def printTable(t):
-    for  i in range(len(t)):
-        for j in range(len(t[0])):
-            print(t[i][j], end='')
-        print()
+# David
+# word = token.tokenizeInput(r'.\src\tes.txt')
+
+# Brian
+word = token.tokenizeInput('./tes.txt')
+
+cyk(word)
 
 # printTable(table)

@@ -1,119 +1,27 @@
-START -> START START | H0 VV | H1 ISIDATA | H0 OPERATOR | H0 EXPRESSION | H2 PARAM | H3 START | H4 ELIF | H5 START | H6 ELIF | H7 START | H7 BC | H8 BC | H9 START | H11 H10 | H12 VAR | H12 EXPRESSION | H9 H13 | H11 H13 | H14 VAR | H15 START | H15 BC | H16 BC | H18 H17 | H19 START | H19 H13 | H20 H13 | H21 VAR | H22 VAR | H23 VAR | H24 VAR | H26 H25 | H28 H27 | H29 H25 | H30 H27
-VAR -> BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~
-VAL -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | VAL VAL | H31 VAL
-VV -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | VAL VAL | H31 VAL | BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~
-PARAM -> H32 PARAM | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | VAL VAL | H31 VAL | H33 H34 | H35 H34 | H37 H36 | H38 H36 | H39 H36 | BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~ | H40 H41 | H42 H41 | H26 H25 | H28 H27 | H29 H25 | H30 H27
-PARAMETER -> H37 H36 | H38 H36 | H39 H36
-FUNC -> VAR PARAMETER
-ASSIGNMENT -> = | += | -= | /= | *= | **= | //= | %=
-OPERATOR -> H43 VV | H44 VV | H45 VV | H46 VV | H47 VV | H48 VV | H49 VV
-RELATION -> == | < | <= | > | >= | !=
-EXPRESSION -> H50 VV | True | False
-ISIDATA -> H51 ISIDATA | H32 PARAM | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | VAL VAL | H31 VAL | H33 H34 | H35 H34 | H37 H36 | H38 H36 | H39 H36 | BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~ | H40 H41 | H42 H41 | H26 H25 | H28 H27 | H29 H25 | H30 H27
-ISIDICT -> H52 ISIDATA | H53 ISIDICT
-ELIF -> H54 START | H55 ELIF | H56 START | H57 ELIF | H58 START
-BC -> BC BC | break | continue
-BEBAS -> BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~
-H0 -> VAR ASSIGNMENT
-H1 -> VAR H60
-H2 -> PARAM H60
-H3 -> H62 H61
-H4 -> H3 START
-H5 -> H63 H61
-H6 -> H5 START
-H7 -> H64 H61
-H8 -> H7 START
-H9 -> H65 H61
-H10 -> return
-H11 -> H9 START
-H12 -> H11 H10
-H13 -> pass
-H14 -> H67 H66
-H15 -> H68 H61
-H16 -> H15 START
-H17 -> BRACKET
-H18 -> H70 H69
-H19 -> H71 H61
-H20 -> H19 START
-H21 -> import
-H22 -> H72 H21
-H23 -> H73 H66
-H24 -> H74 H66
-H25 -> "
-H26 -> H25 BEBAS
-H27 -> '
-H28 -> H27 BEBAS
-H29 -> H75 H25
-H30 -> H76 H27
-H31 -> VAL H77
-H32 -> PARAM H78
-H33 -> [
-H34 -> ]
-H35 -> H33 ISIDATA
-H36 -> )
-H37 -> H39 PARAM
-H38 -> H39 PARAMETER
-H39 -> (
-H40 -> {
-H41 -> }
-H42 -> H40 ISIDICT
-H43 -> VV H79
-H44 -> VV H80
-H45 -> VV H81
-H46 -> VV H82
-H47 -> VV H83
-H48 -> VV H84
-H49 -> VV H85
-H50 -> VV RELATION
-H51 -> ISIDATA H78
-H52 -> ISIDATA H61
-H53 -> ISIDICT H78
-H54 -> H86 H61
-H55 -> H54 START
-H56 -> H87 H61
-H57 -> H56 START
-H58 -> else
-H60 -> =
-H61 -> :
-H62 -> H88 EXPRESSION
-H63 -> H88 VAR
-H64 -> H89 EXPRESSION
-H65 -> H90 FUNC
-H66 -> as
-H67 -> H91 VAR
-H68 -> H70 VAR
-H69 -> range
-H70 -> H93 H92
-H71 -> H94 VAR
-H72 -> H95 VAR
-H73 -> H22 VAR
-H74 -> H21 VAR
-H75 -> H96 H25
-H76 -> H97 H27
-H77 -> _
-H78 -> ,
-H79 -> +
-H80 -> -
-H81 -> /
-H82 -> *
-H83 -> **
-H84 -> %
-H85 -> //
-H86 -> H98 EXPRESSION
-H87 -> H98 VAR
-H88 -> if
-H89 -> while
-H90 -> def
-H91 -> with
-H92 -> in
-H93 -> H99 VAR
-H94 -> class
-H95 -> from
-H96 -> H100 BEBAS
-H97 -> H101 BEBAS
-H98 -> elif
-H99 -> for
-H100 -> H102 H25
-H101 -> H103 H27
-H102 -> H25 H25
-H103 -> H27 H27
+S -> S S | IF ELIF | IF ELSE | for | X B1 | X C1 | S E1 | FOR S | Z A1 | EXPRESSION EXPRESSION
+Z -> (
+Y -> )
+EXPRESSION -> Z A1 | EXPRESSION EXPRESSION
+A1 -> EXPRESSION Y
+X -> if
+W -> :
+IF -> X B1 | X C1
+B1 -> EXPRESSION B2
+B2 -> W EXPRESSION
+C1 -> EXPRESSION C2
+C2 -> W S
+U -> elif
+ELIF -> U D1 | ELIF ELIF | ELIF ELSE | ELIF S
+D1 -> EXPRESSION W
+T -> else
+ELSE -> T W | ELSE S
+R -> in
+Q -> range
+FOR -> S E1 | FOR S
+E1 -> EXPRESSION E2
+E2 -> R E3
+E3 -> Q E4
+E4 -> Z E5
+E5 -> EXPRESSION E6
+E6 -> Y W
+S0 -> S S | IF ELIF | IF ELSE | for | X B1 | X C1 | S E1 | FOR S | Z A1 | EXPRESSION EXPRESSION

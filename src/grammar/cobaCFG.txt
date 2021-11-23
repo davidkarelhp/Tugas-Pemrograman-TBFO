@@ -1,0 +1,11 @@
+Terminals:
+if elif else ( ) : for in range
+Variables:
+S IF ELIF ELSE EXPRESSION STRING FOR
+Productions:
+S -> S S | IF ELIF | IF | IF ELSE | FOR | EXPRESSION;
+EXPRESSION -> ( EXPRESSION ) | EXPRESSION EXPRESSION;
+IF -> if EXPRESSION : EXPRESSION | if EXPRESSION : S;
+ELIF -> elif EXPRESSION : | ELIF ELIF | ELIF ELSE | ELIF S;
+ELSE -> else : | ELSE S;
+FOR -> for EXPRESSION in range ( EXPRESSION ) : | FOR S

@@ -141,5 +141,10 @@ if __name__ == '__main__':
 	
 	print( helper.prettyForm(Productions) )
 	print( len(Productions) )
+
+	# Brian
 	open('../../grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
+
+	# David
+	# open('src/grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
 

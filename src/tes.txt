@@ -1,2 +1,16 @@
-def x(x):
-    pass
+if (brian):
+    halo = "halo
+elif (halo):
+    for i in range (99999):
+        if (aldwin):
+        elif udahBisaNih:
+            y = 7 + 234
+            x = input("Masukkan input)
+        else:
+            if (((((((((WkWkWk))))))))):
+                for (i) in range (asa):
+                    for j in range (cto):
+                        x = 5 + 3
+else:
+if (haha):
+    haha = 'haha'
