@@ -5,7 +5,8 @@ import sys, helper
 left, right = 0, 1
 
 K, V, Productions = [],[],[]
-variablesJar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z"]
+variablesJar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z",
+				 "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ"]
 
 
 def isUnitary(rule, variables):
@@ -143,8 +144,8 @@ if __name__ == '__main__':
 	print( len(Productions) )
 
 	# Brian
-	open('../../grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
+	# open('../../grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
 
 	# David
-	# open('src/grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
+	open('src/grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
 

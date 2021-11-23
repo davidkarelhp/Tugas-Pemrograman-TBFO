@@ -14,10 +14,10 @@ import os
 # print(os.getcwd())
 
 # David
-# non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
+non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
 
 # Brian
-non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
+# non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
 
 
 # print(CNFgrammar)
@@ -25,7 +25,6 @@ non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
 
 def cyk(word):
     n = len(word)
-    print(word)
     table = [[set() for j in range(n)] for i in range(n)]
     for i in range(n):
         for key in CNFgrammar:
@@ -64,10 +63,12 @@ def cyk(word):
 # word = "(((((e))))(e)((e)))"
 
 # David
-# word = token.tokenizeInput(r'.\src\tes.txt')
+word = token.tokenizeInput(r'.\src\tes.txt')
 
 # Brian
-word = token.tokenizeInput('./tes.txt')
+# word = token.tokenizeInput('./tes.txt')
+
+# print(word)
 
 cyk(word)
 
