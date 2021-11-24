@@ -11,8 +11,7 @@ import readCNF
 import token
 import os
 
-if ():
-    pass
+
 # print(os.getcwd())
 
 # David
@@ -28,13 +27,31 @@ non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
 def cyk(word):
     n = len(word)
     table = [[set() for j in range(n)] for i in range(n)]
+    array = []
+    singleQuote = True
+    doubleQuote = True
     for i in range(n):
         for key in CNFgrammar:
             for j in range(len(CNFgrammar[key])):
                 if (len(CNFgrammar[key][j]) == 1 and CNFgrammar[key][j][0] == word[i]):
                     table[i][i].add(key)
-                if not (word[i] in terminals):
-                    table[i][i].add("EXPRESSION")
+        if not (word[i] in terminals):
+            table[i][i].add("EXPRESSION")
+
+        # Tidak membaca komen dan string
+        if (word[i] == "'"):
+            singleQuote = not singleQuote
+        if (word[i] == '"'):
+            doubleQuote = not doubleQuote
+
+        if singleQuote and doubleQuote and (not (word[i] in terminals) or word[i] == "pass" or word[i] == "break" or word[i] == "continue" or word[i] == "None"):
+            array.append(word[i])
+        else:
+            # if (len(array) != 0):
+            #     print(array) 
+            # Panggil fungsi di sini di baris ini kalau len(array) != 0
+            array = []
+
     # printTable(table)
 
     # count = 0
