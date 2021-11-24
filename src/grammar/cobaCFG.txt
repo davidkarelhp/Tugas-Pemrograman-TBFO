@@ -32,4 +32,4 @@ OR -> NEXPRESSION or NEXPRESSION;
 RETURN -> return NEXPRESSION | return EXPRESSION | return | return S;
 BOOLEAN -> True | False;
 IS -> NEXPRESSION is NEXPRESSION;
-RAISE -> raise TypeError EXPRESSION | raise Exception EXPRESSION
+RAISE -> raise TypeError ( EXPRESSION ) | raise Exception ( EXPRESSION )
