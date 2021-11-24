@@ -37,6 +37,24 @@ def tokenizeInput(inputFilename):
     # Strip empty string
     result = [string for string in result if string!='']
 
+        # Strip comment
+    temporaryResult = []
+    comment = False
+    for res in result:
+        if (res == "'" or res == '"'):
+            if (comment):
+                if (res == quote):
+                    comment = False
+            else:
+                quote = res 
+                comment = True
+                temporaryResult.append(quote)
+                temporaryResult.append('comment')
+        if (not comment):
+            temporaryResult.append(res)
+    result = temporaryResult
+    print(result)
+
     return result
 
 # print(tokenizeInput("file"))
