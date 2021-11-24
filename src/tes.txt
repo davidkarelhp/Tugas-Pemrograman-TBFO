@@ -1,2 +1,4 @@
-if (x):
-    x = 5 + 2
+if (x + 5 ==):
+    pass
+else:
+    dada srfsf
