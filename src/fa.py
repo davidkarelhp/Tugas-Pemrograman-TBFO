@@ -1,4 +1,4 @@
-OP = ['+', '-', '/', '%', '*', '**']
+OP = ['+', '-', '/', '%', '*', '**', '//']
 NA = ['pass', 'break', 'continue']
 BN = ['True', 'False', 'None']
 def VV(str):

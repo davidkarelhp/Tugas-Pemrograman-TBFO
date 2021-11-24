@@ -114,5 +114,13 @@ def tokenizeInput(inputFilename):
             if (result[i + 1] == '*'):
                 result[i] = result[i] + result[i + 1]
                 del result[i + 1]
+    
+    for i in range(len(result) - 1):
+        if (i >= len(result) - 1):
+            break
+        if (result[i] == '/'):
+            if (result[i + 1] == '/'):
+                result[i] = result[i] + result[i + 1]
+                del result[i + 1]
 
     return result
