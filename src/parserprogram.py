@@ -1,7 +1,5 @@
-from cobacobaFA import parsingLine
 import readCNF
 import token
-import os
 import fa
 import sys
 
@@ -87,9 +85,9 @@ def cyk(word):
         # print(count)
         # print("lewat cfg")
         if (accepted):
-            print("accepted")
+            print("Accepted")
         else:
-            print("rejected")
+            print("Syntax Error")
         return accepted
 
 

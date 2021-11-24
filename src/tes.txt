@@ -1,4 +1,0 @@
-if (x + 5 ==):
-    pass
-else:
-    dada srfsf
