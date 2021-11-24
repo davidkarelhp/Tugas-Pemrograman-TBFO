@@ -1,10 +1,10 @@
 Terminals:
-if elif else ( ) " ' : for in while break continue import from as def class with open and or not return False True is pass raise TypeError Exception epsilon
+if elif else ( ) " ' : for in while break continue import from as def class with open and or not return False True is pass raise TypeError Exception
 Variables:
 S IF ELIF ELSE EXPRESSION STRING FOR WHILE INSIDELOOP IMPORT FROM DEF CLASS WITH A AND OR NOT NEXPRESSION RETURN BOOLEAN INSIDEDEF IFDEF ELIFDEF ELSEDEF ADEF FORDEF WHILEDEF INSIDELOOPDEF RAISE
 Productions:
-S -> S S | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | RAISE | " A " | ' A ' | " " " A " " " | ' ' ' A ' ' ' | pass | epsilon;
-A -> A A | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | epsilon;
+S -> S S | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | RAISE | " A " | ' A ' | " " " A " " " | ' ' ' A ' ' ' | pass;
+A -> A A | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS;
 EXPRESSION -> ( ) | ( EXPRESSION ) | EXPRESSION EXPRESSION | " EXPRESSION " | ' EXPRESSION ' | " " " EXPRESSION " " " | ' ' ' EXPRESSION ' ' ';
 NEXPRESSION -> ( ) | EXPRESSION | NOT | OR | AND | ( NEXPRESSION ) | BOOLEAN | IS;
 IF -> if NEXPRESSION : S | if EXPRESSION : S;
@@ -32,4 +32,4 @@ OR -> NEXPRESSION or NEXPRESSION;
 RETURN -> return NEXPRESSION | return EXPRESSION | return | return S;
 BOOLEAN -> True | False;
 IS -> NEXPRESSION is NEXPRESSION;
-RAISE -> raise TypeError EXPRESSION | raise Exception EXPRESSION
+RAISE -> raise TypeError ( EXPRESSION ) | raise Exception ( EXPRESSION )
