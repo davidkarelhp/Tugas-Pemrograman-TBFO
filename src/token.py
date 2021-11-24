@@ -51,7 +51,6 @@ def tokenizeInput(inputFilename):
             for splitStatement in x:
                 temporaryResult.append(splitStatement) 
         result = temporaryResult
-
     # Strip space
     temporaryResult = []
     for statement in result:
@@ -67,6 +66,7 @@ def tokenizeInput(inputFilename):
     # Strip comment
     temporaryResult = []
     comment = False
+    quote = ""
     for res in result:
         if (res == "'" or res == '"' or res == "threeOneQuote" or res == "threeTwoQuote"):
             if (comment):
@@ -90,10 +90,12 @@ def tokenizeInput(inputFilename):
                 temporaryResult.append("'")
                 temporaryResult.append("'")
                 temporaryResult.append("'")
+                quote = ""
             elif (quote == 'threeTwoQuote'):
                 temporaryResult.append('"')
                 temporaryResult.append('"')
                 temporaryResult.append('"')
+                quote = ""
             else:
                 temporaryResult.append(res)
         else:
