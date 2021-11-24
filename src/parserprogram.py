@@ -3,17 +3,9 @@ import token
 import fa
 import sys
 
-def printTable(t):
-    for  i in range(len(t)):
-        for j in range(len(t[0])):
-            print(t[i][j], end='')
-        print()
 
-non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
-
-def cyk(word):
-    print(word)
-    n = len(word)
+def cyk(inputToken, non_terminals, terminals, CNFgrammar):
+    n = len(inputToken)
     if (n == 0):
         print("Accepted")
         return True
@@ -25,19 +17,19 @@ def cyk(word):
         for i in range(n):
             for key in CNFgrammar:
                 for j in range(len(CNFgrammar[key])):
-                    if (len(CNFgrammar[key][j]) == 1 and CNFgrammar[key][j][0] == word[i]):
+                    if (len(CNFgrammar[key][j]) == 1 and CNFgrammar[key][j][0] == inputToken[i]):
                         table[i][i].add(key)
-            if not (word[i] in terminals):
+            if not (inputToken[i] in terminals):
                 table[i][i].add("EXPRESSION")
 
             # Tidak membaca komen dan string
-            if (word[i] == "'"):
+            if (inputToken[i] == "'"):
                 singleQuote = not singleQuote
-            if (word[i] == '"'):
+            if (inputToken[i] == '"'):
                 doubleQuote = not doubleQuote
     
-            if singleQuote and doubleQuote and ((not (word[i] in terminals)) or word[i] == "pass" or word[i] == "break" or word[i] == "continue" or word[i] == "None" or word[i] == "True" or word[i] == "False"):
-                array.append(word[i])
+            if singleQuote and doubleQuote and ((not (inputToken[i] in terminals)) or inputToken[i] == "pass" or inputToken[i] == "break" or inputToken[i] == "continue" or inputToken[i] == "None" or inputToken[i] == "True" or inputToken[i] == "False"):
+                array.append(inputToken[i])
             else:
                 if (len(array) != 0):
                     cekFiniteAutomata = fa.fa(array)
@@ -81,16 +73,16 @@ def cyk(word):
                             break
                     if (accepted):
                         break                               
-        # printTable(table)
-        # print(count)
-        # print("lewat cfg")
         if (accepted):
             print("Accepted")
         else:
             print("Syntax Error")
         return accepted
 
+def main():
+    non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
+    inputToken = token.tokenizeInput('./' + sys.argv[1])
+    cyk(inputToken, non_terminals, terminals, CNFgrammar)
 
-word = token.tokenizeInput('./' + sys.argv[1])
-
-cyk(word)
+if __name__ == "__main__":
+    main()

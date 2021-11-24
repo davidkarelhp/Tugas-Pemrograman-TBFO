@@ -1,12 +1,9 @@
-from abc import abstractproperty
-from os import altsep
 import re
 
 def tokenizeInput(inputFilename):
     # Read from file
     f = open(inputFilename, "r", encoding='utf8')
     contents = f.read()
-    # contents = "(Halo(Halo Bandung(] yey]"
     contents = contents.split()
     f.close()
 
@@ -26,8 +23,7 @@ def tokenizeInput(inputFilename):
             for splitStatement in x:
                 temporaryResult.append(splitStatement) 
         result = temporaryResult
-        # print("result")
-        # print(result)
+
     # check three quote
     temporaryResult = []
     for res in result:
@@ -120,5 +116,3 @@ def tokenizeInput(inputFilename):
                 del result[i + 1]
 
     return result
-
-# print(tokenizeInput("file"))

@@ -12,11 +12,8 @@ FINALSTATES = ['S', 'A', 'B', 'C', 'D', 'F', 'H', 'J']
 def fa(array):
     current_state = 'S'
     n = len(array)
-    # print(array)
-    # print("start")
+
     for i in range(n):
-        # print("state " + current_state)
-        # print(array[i])
         if (current_state == 'S'):
             if (array[i] in OP or array[i] in COMP or array[i] in ASS):
                 return False
@@ -107,9 +104,7 @@ def fa(array):
                 current_state = 'G'
             else:
                 return False
-
-    # print('state')
-    # print("endstate " + current_state)
+                
     return current_state in FINALSTATES
 
 

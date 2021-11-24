@@ -103,13 +103,13 @@ def DEL(productions):
 
 def unit_routine(rules, variables):
 	unitaries, result = [], []
-	#controllo se una regola è unaria
+	#check if a rule is unary
 	for aRule in rules:
 		if isUnitary(aRule, variables):
 			unitaries.append( (aRule[left], aRule[right][0]) )
 		else:
 			result.append(aRule)
-	#altrimenti controllo se posso sostituirla in tutte le altre
+	#otherwise I check if I can replace it in all the others
 	for uni in unitaries:
 		for rule in rules:
 			if uni[right]==rule[left] and uni[left]!=rule[left]:
@@ -145,9 +145,5 @@ if __name__ == '__main__':
 	print( helper.prettyForm(Productions) )
 	print( len(Productions) )
 
-	# Brian
-	# open('../../grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
-
-	# David
 	open('src/grammar/CNF.txt', 'w').write(	helper.prettyForm(Productions) )
 
