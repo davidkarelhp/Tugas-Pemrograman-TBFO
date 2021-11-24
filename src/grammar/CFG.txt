@@ -1,36 +1,35 @@
 Terminals:
-if elif else for in is while break continue def class pass with as from import raise // ** += -= *= /= **= //= %= , == < <= > >= != True False or and 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! " # $ % & ' - . / : < = > ? @ [ \ ] ^ _ ` { } ~
+if elif else ( ) " ' : for in while break continue import from as def class with open and or not return False True is pass raise TypeError Exception epsilon
 Variables:
-START VAR VAL VVS VV PARAM PARAMETER FUNC ASSIGNMENT OPERATOR RELATION EXPRESSION ARRAY ISIDATA DICT ISIDICT IF ELIF ELSE FOR BC BREAK CONTINUE RAISE WHILE IMPORT WITH DEF CLASS BEBAS STRING
+S IF ELIF ELSE EXPRESSION STRING FOR WHILE INSIDELOOP IMPORT FROM DEF CLASS WITH A AND OR NOT NEXPRESSION RETURN BOOLEAN INSIDEDEF IFDEF ELIFDEF ELSEDEF ADEF FORDEF WHILEDEF INSIDELOOPDEF RAISE
 Productions:
-START -> START START | VAR ASSIGNMENT VV | VAR = ISIDATA | VAR ASSIGNMENT OPERATOR | VAR ASSIGNMENT EXPRESSION | IF | FOR | WHILE | IMPORT | DEF | CLASS | WITH | STRING | PARAM = PARAM;
-VAR -> BEBAS;
-VAL -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | VAL VAL | VAL _ VAL;
-VVS -> VV | STRING;
-VV -> VAL | VAR;
-PARAM -> VVS | PARAM , PARAM | ARRAY | DICT | PARAMETER;
-PARAMETER -> ( PARAM ) | ( PARAMETER ) | ( );
-FUNC -> VAR PARAMETER;
-ASSIGNMENT -> = | += | -= | /= | *= | **= | //= | %=;
-OPERATOR -> VV + VV | VV - VV | VV / VV | VV * VV | VV ** VV | VV % VV | VV // VV;
-RELATION -> == | < | <= | > | >= | !=;
-EXPRESSION -> VV RELATION VV | True | False;
-ARRAY -> [ ] | [ ISIDATA ];
-ISIDATA -> PARAM | PARAMETER | ISIDATA , ISIDATA;
-DICT -> { } | { ISIDICT };
-ISIDICT -> ISIDATA : ISIDATA | ISIDICT , ISIDICT;
-IF -> if EXPRESSION : START | if EXPRESSION : START ELIF | if VAR : START | if VAR : START ELIF;
-ELIF -> elif EXPRESSION : START | elif EXPRESSION : START ELIF | elif VAR : START | elif VAR : START ELIF | ELSE;
-ELSE -> else START;
-FOR -> for VAR in VAR : START | for VAR in VAR : BC | for VAR in VAR : START BC | for VAR in range BRACKET;
-BC -> BREAK | CONTINUE | BC BC;
-BREAK -> break;
-CONTINUE -> continue;
-RAISE -> raise STRING | raise FUNC;
-WHILE -> while EXPRESSION : START | while EXPRESSION : BC | while EXPRESSION : START BC;
-IMPORT -> import VAR | from VAR import VAR | from VAR import VAR as VAR | import VAR as VAR;
-WITH -> with VAR as VAR;
-DEF -> def FUNC : START | def FUNC : START return | def FUNC : START return VAR | def FUNC : START return EXPRESSION | def FUNC : pass | def FUNC : START pass ;
-CLASS -> class VAR : START | class VAR : pass | class VAR : START pass;
-BEBAS -> BEBAS BEBAS | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | ! | " | # | $ | % | & | ' | - | . | / | : | < | = | > | ? | @ | [ | \ | ] | ^ | _ | ` | { | } | ~;
-STRING -> " BEBAS " | ' BEBAS ' | " " " BEBAS " " " | ' ' ' BEBAS ' ' '
+S -> S S | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | RAISE | " A " | ' A ' | " " " A " " " | ' ' ' A ' ' ' | pass | epsilon;
+A -> A A | IF ELIF | IF | IF ELSE | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | epsilon;
+EXPRESSION -> ( ) | ( EXPRESSION ) | EXPRESSION EXPRESSION | " EXPRESSION " | ' EXPRESSION ' | " " " EXPRESSION " " " | ' ' ' EXPRESSION ' ' ';
+NEXPRESSION -> ( ) | EXPRESSION | NOT | OR | AND | ( NEXPRESSION ) | BOOLEAN | IS;
+IF -> if NEXPRESSION : S | if EXPRESSION : S;
+ELIF -> elif NEXPRESSION : S | elif NEXPRESSION : S ELIF | elif NEXPRESSION : S ELSE | elif EXPRESSION : S | elif EXPRESSION : S ELIF | elif EXPRESSION : S ELSE;
+ELSE -> else : S;
+FOR -> for EXPRESSION in EXPRESSION : INSIDELOOP | FOR EXPRESSION in range ( EXPRESSION ) : INSIDELOOP;
+WHILE -> while NEXPRESSION : INSIDELOOP | while EXPRESSION : INSIDELOOP;
+INSIDELOOP -> break | continue | S | INSIDELOOP INSIDELOOP;
+IMPORT -> import EXPRESSION | import EXPRESSION as EXPRESSION;
+FROM -> from EXPRESSION IMPORT;
+DEF -> def EXPRESSION ( EXPRESSION ) : INSIDEDEF RETURN | def EXPRESSION ( EXPRESSION ) : INSIDEDEF;
+INSIDEDEF ->  INSIDEDEF | INSIDEDEF INSIDEDEF | IFDEF ELIFDEF | IFDEF | IFDEF ELSEDEF | FORDEF | WHILEDEF | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | RETURN | " ADEF " | ' ADEF ' | " " " ADEF " " " | ' ' ' ADEF ' ' ';
+ADEF -> ADEF ADEF | IFDEF ELIFDEF | IFDEF | IFDEF ELSEDEF | EXPRESSION | FOR | WHILE | IMPORT | FROM | DEF | CLASS | WITH | NOT | AND | OR | BOOLEAN | IS | RETURN | TERMINAL;
+IFDEF -> if NEXPRESSION : INSIDEDEF | if EXPRESSION : INSIDEDEF;
+ELIFDEF -> elif NEXPRESSION : INSIDEDEF | elif NEXPRESSION : INSIDEDEF ELIFDEF | elif NEXPRESSION : INSIDEDEF ELSEDEF | elif EXPRESSION : INSIDEDEF | elif EXPRESSION : INSIDEDEF ELIFDEF | elif EXPRESSION : INSIDEDEF ELSEDEF;
+ELSEDEF -> else : INSIDEDEF;
+FORDEF -> for EXPRESSION in EXPRESSION : INSIDELOOPDEF | FORDEF EXPRESSION in range ( EXPRESSION ) : INSIDELOOPDEF;
+WHILEDEF -> while NEXPRESSION : INSIDELOOPDEF | while EXPRESSION : INSIDELOOPDEF;
+INSIDELOOPDEF -> break | continue | INSIDEDEF | INSIDELOOPDEF INSIDELOOPDEF;
+CLASS -> class EXPRESSION : S | class EXPRESSION ( EXPRESSION ) : S;
+WITH -> with open ( EXPRESSION ) as EXPRESSION : S;
+NOT -> not NEXPRESSION;
+AND -> NEXPRESSION and NEXPRESSION;
+OR -> NEXPRESSION or NEXPRESSION;
+RETURN -> return NEXPRESSION | return EXPRESSION | return | return S;
+BOOLEAN -> True | False;
+IS -> NEXPRESSION is NEXPRESSION;
+RAISE -> raise TypeError EXPRESSION | raise Exception EXPRESSION

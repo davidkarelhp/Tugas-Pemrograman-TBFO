@@ -11,6 +11,8 @@ import readCNF
 import token
 import os
 
+if ():
+    pass
 # print(os.getcwd())
 
 # David
@@ -75,3 +77,4 @@ word = token.tokenizeInput(r'.\src\tes.txt')
 
 cyk(word)
 # printTable(table)
+
