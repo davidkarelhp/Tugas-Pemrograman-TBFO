@@ -107,7 +107,7 @@ def parsingLine(array):
                         i += 3
             
         # checking pasangan dua
-        if((array[i] == "+" or array[i] == "-" or array[i] == "*" or array[i] == "/" or array[i] == "<" or array[i] == ">" or array[i] == "=") and i+1 <= lenght):
+        if((array[i] == "+" or array[i] == "-" or array[i] == "*" or array[i] == "/" or array[i] == "<" or array[i] == ">" or array[i] == "=") and i+1 < lenght):
             if(array[i] == "+"):
                 if(array[i+1] == "="):
                     datatype = "ASSIGN"
