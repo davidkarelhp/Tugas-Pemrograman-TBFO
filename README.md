@@ -27,11 +27,11 @@ Tugas Besar IF2124 Teori Bahasa Formal dan Otomata Compiler Bahasa Python
 ### Using Parser Program
 1. Pastikan directory pada `./Tugas-Pemrograman-TBFO/src`
 2. Jalankan <br />
-    Windows:
+    - Windows:
     ```
     py parserprogram.py <nama_file>
     ```
-    MacOS and Unix:
+    - MacOS and Unix:
     ```
     python parserprogram.py <nama_file>
     ```
