@@ -1,3 +1,5 @@
+from abc import abstractproperty
+from os import altsep
 import re
 
 def tokenizeInput(inputFilename):
@@ -10,9 +12,34 @@ def tokenizeInput(inputFilename):
 
     result = contents
 
-    operators = [':', ',', '=', '<', '>', '>=', '<=', '==', '!=', r'\+', '-', r'\*', '/', r'\*\*', r'\(', r'\)' , r'\[' , r'\]',r'\'\'\'', r'\'', r'\"']
+    operators = [':', ',', '=', '<', '>', '>=', '<=', '==', '!=', r'\+', '-', r'\*', '/', r'\*\*', r'\(', r'\)' , r'\[' , r'\]',r'\'\'\'', r'\"\"\"']
 
     # For each operator..
+    for operator in operators:
+        temporaryResult = []
+        # For each statement..
+        for statement in result:
+            format = r"[A..z]*(" + operator +r")[A..z]*"
+            x = re.split(format, statement)
+            
+            # Append 
+            for splitStatement in x:
+                temporaryResult.append(splitStatement) 
+        result = temporaryResult
+
+    # check three quote
+    temporaryResult = []
+    for res in result:
+        if (res == "'''"):
+            temporaryResult.append("threeOneQuote")
+        elif (res == '"""'):
+            temporaryResult.append("threeTwoQuote")
+        else:
+            temporaryResult.append(res)
+    result = temporaryResult
+
+    operators = [r'\'', r'\"']
+    # check one quote
     for operator in operators:
         temporaryResult = []
         # For each statement..
@@ -41,16 +68,34 @@ def tokenizeInput(inputFilename):
     temporaryResult = []
     comment = False
     for res in result:
-        if (res == "'" or res == '"'):
+        if (res == "'" or res == '"' or res == "threeOneQuote" or res == "threeTwoQuote"):
             if (comment):
                 if (res == quote):
                     comment = False
             else:
                 quote = res 
                 comment = True
-                temporaryResult.append(quote)
+                if (quote == 'threeOneQuote'):
+                    temporaryResult.append("'")
+                    temporaryResult.append("'")
+                    temporaryResult.append("'")
+                elif (quote == 'threeTwoQuote'):
+                    temporaryResult.append('"')
+                    temporaryResult.append('"')
+                    temporaryResult.append('"')
+                else:
+                    temporaryResult.append(quote)
         if (not comment):
-            temporaryResult.append(res)
+            if (quote == 'threeOneQuote'):
+                temporaryResult.append("'")
+                temporaryResult.append("'")
+                temporaryResult.append("'")
+            elif (quote == 'threeTwoQuote'):
+                temporaryResult.append('"')
+                temporaryResult.append('"')
+                temporaryResult.append('"')
+            else:
+                temporaryResult.append(res)
         else:
             temporaryResult.append('comment')
     result = temporaryResult
