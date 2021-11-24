@@ -15,7 +15,7 @@ def cyk(word):
     print(word)
     n = len(word)
     if (n == 0):
-        print("accepted")
+        print("Accepted")
         return True
     else:
         table = [[set() for j in range(n)] for i in range(n)]
@@ -42,7 +42,7 @@ def cyk(word):
                 if (len(array) != 0):
                     cekFiniteAutomata = fa.fa(array)
                     if (not cekFiniteAutomata):
-                        print("rejected")
+                        print("Syntax Error")
                         return False                    
                 array = []
 
@@ -50,7 +50,7 @@ def cyk(word):
             # print(array)
             cekFiniteAutomata = fa.fa(array)
             if (not cekFiniteAutomata):
-                print("rejected")
+                print("Syntax Error")
                 return False
 
         check = True
@@ -59,7 +59,7 @@ def cyk(word):
                     check = False
                     break
         if (check):
-            print("accepted")
+            print("Accepted")
             return True
 
         # count = 0
