@@ -5,11 +5,15 @@ def printTable(t):
             print(t[i][j], end='')
         print()
 from abc import abstractmethod
+from typing import Final
+from cobacobaFA import parsingLine
 # from os import WCOREDUMP
 # from src.token import tokenizeInput
 import readCNF
 import token
 import os
+import fa
+
 
 # print(os.getcwd())
 
@@ -24,6 +28,7 @@ non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
 # print(terminals)
 
 def cyk(word):
+    print(word)
     n = len(word)
     if (n == 0):
         print("accepted")
@@ -46,21 +51,24 @@ def cyk(word):
                 singleQuote = not singleQuote
             if (word[i] == '"'):
                 doubleQuote = not doubleQuote
-            # print(singleQuote, doubleQuote, (not (word[i] in terminals)))
-            # print(word[i])
+    
             if singleQuote and doubleQuote and ((not (word[i] in terminals)) or word[i] == "pass" or word[i] == "break" or word[i] == "continue" or word[i] == "None"):
                 array.append(word[i])
             else:
-                # if (len(array) != 0):
-                #     print("lol")
-                #     print(array) 
-                    
-                # Panggil fungsi di sini di baris ini kalau len(array) != 0
+                if (len(array) != 0):
+                    cekFiniteAutomata = fa.fa(array)
+                    if (not cekFiniteAutomata):
+                        print("rejected")
+                        return False                    
                 array = []
+
         if (len(array) != 0):
-            pass
-            # print("lol")
             # print(array)
+            cekFiniteAutomata = fa.fa(array)
+            if (not cekFiniteAutomata):
+                print("rejected")
+                return False
+
         check = True
         for i in range(n):
                 if not ("EXPRESSION" in table[i][i] or "BOOLEAN" in table[i][i]):
@@ -69,6 +77,7 @@ def cyk(word):
         if (check):
             print("accepted")
             return True
+
         # count = 0
         accepted = False
         for l in range(1, n + 1):

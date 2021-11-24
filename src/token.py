@@ -26,7 +26,8 @@ def tokenizeInput(inputFilename):
             for splitStatement in x:
                 temporaryResult.append(splitStatement) 
         result = temporaryResult
-
+        # print("result")
+        # print(result)
     # check three quote
     temporaryResult = []
     for res in result:
@@ -101,8 +102,21 @@ def tokenizeInput(inputFilename):
         else:
             temporaryResult.append('comment')
     result = temporaryResult
-    print(result)
 
+    for i in range(len(result) - 1):
+        if (i >= len(result) - 1):
+            break
+        if (result[i] == '<' or result[i] == '>' or result[i] == '=' or result[i] == '!'):
+            if (result[i + 1] == '='):
+                result[i] = result[i] + result[i + 1]
+                del result[i + 1]
+    for i in range(len(result) - 1):
+        if (i >= len(result) - 1):
+            break
+        if (result[i] == '*'):
+            if (result[i + 1] == '*'):
+                result[i] = result[i] + result[i + 1]
+                del result[i + 1]
     return result
 
 # print(tokenizeInput("file"))
