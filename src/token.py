@@ -37,7 +37,7 @@ def tokenizeInput(inputFilename):
     # Strip empty string
     result = [string for string in result if string!='']
 
-        # Strip comment
+    # Strip comment
     temporaryResult = []
     comment = False
     for res in result:
@@ -49,9 +49,10 @@ def tokenizeInput(inputFilename):
                 quote = res 
                 comment = True
                 temporaryResult.append(quote)
-                temporaryResult.append('comment')
         if (not comment):
             temporaryResult.append(res)
+        else:
+            temporaryResult.append('comment')
     result = temporaryResult
     print(result)
 
