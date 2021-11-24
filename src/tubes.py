@@ -52,7 +52,7 @@ def cyk(word):
             if (word[i] == '"'):
                 doubleQuote = not doubleQuote
     
-            if singleQuote and doubleQuote and ((not (word[i] in terminals)) or word[i] == "pass" or word[i] == "break" or word[i] == "continue" or word[i] == "None"):
+            if singleQuote and doubleQuote and ((not (word[i] in terminals)) or word[i] == "pass" or word[i] == "break" or word[i] == "continue" or word[i] == "None" or word[i] == "True" or word[i] == "False"):
                 array.append(word[i])
             else:
                 if (len(array) != 0):
@@ -99,6 +99,7 @@ def cyk(word):
                         break                               
         # printTable(table)
         # print(count)
+        # print("lewat cfg")
         if (accepted):
             print("accepted")
         else:

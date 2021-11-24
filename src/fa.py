@@ -1,6 +1,6 @@
 OP = ['+', '-', '/', '%', '*', '**']
 NA = ['pass', 'break', 'continue']
-BN = ['True', 'False']
+BN = ['True', 'False', 'None']
 def VV(str):
     return str.isidentifier()
 COMP = ['==', '<=', '>=', '!=', '<', '<']
@@ -11,6 +11,7 @@ FINALSTATES = ['S', 'A', 'B', 'C', 'D']
 def fa(array):
     current_state = 'S'
     n = len(array)
+    # print(array)
     # print("start")
     for i in range(n):
         # print("state " + current_state)
