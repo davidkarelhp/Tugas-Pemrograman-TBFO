@@ -1,31 +1,17 @@
+from cobacobaFA import parsingLine
+import readCNF
+import token
+import os
+import fa
+import sys
 
 def printTable(t):
     for  i in range(len(t)):
         for j in range(len(t[0])):
             print(t[i][j], end='')
         print()
-from abc import abstractmethod
-from typing import Final
-from cobacobaFA import parsingLine
-# from os import WCOREDUMP
-# from src.token import tokenizeInput
-import readCNF
-import token
-import os
-import fa
 
-
-# print(os.getcwd())
-
-# David
-non_terminals, terminals, CNFgrammar = readCNF.readCNF(r".\src\grammar\CNF.txt")
-
-# Brian
-# non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
-
-
-# print(CNFgrammar)
-# print(terminals)
+non_terminals, terminals, CNFgrammar = readCNF.readCNF(r"./grammar/CNF.txt")
 
 def cyk(word):
     print(word)
@@ -106,17 +92,7 @@ def cyk(word):
             print("rejected")
         return accepted
 
-# word = "(((((e))))(e)((e)))"
 
-# David
-word = token.tokenizeInput(r'.\src\tes.txt')
-
-# Brian
-# word = token.tokenizeInput('./tes.txt')
-# print(word)
-
-# print(word)
+word = token.tokenizeInput('./' + sys.argv[1])
 
 cyk(word)
-# printTable(table)
-
