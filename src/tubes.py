@@ -11,7 +11,6 @@ import readCNF
 import token
 import os
 
-
 # print(os.getcwd())
 
 # David
